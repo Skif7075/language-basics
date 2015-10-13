@@ -87,6 +87,8 @@ Grammar.prototype.first = function(symbol,preset){
             throw new Error(symbol+" is missing");
         for (var i=0;i<this.rules[symbol].length;i++) {
             var r = this.rules[symbol][i];
+            if (r.charAt(0)==symbol)
+                preset.push(r.charAt(0));
             if (r.charAt(0)!=symbol && !preset.contains(r.charAt(0))) {
                 preset.push(r.charAt(0));
                 preset = preset.concat(this.first(r.charAt(0), preset));
@@ -104,6 +106,8 @@ Grammar.prototype.last = function(symbol,preset){
             throw new Error(symbol+" is missing");
         for (var i=0;i<this.rules[symbol].length;i++) {
             var r = this.rules[symbol][i];
+            if (r.charAt(r.length-1)==symbol)
+                preset.push(r.charAt(r.length-1));
             if (r.charAt(r.length-1)!=symbol && !preset.contains(r.charAt(r.length-1))) {
                 preset.push(r.charAt(r.length - 1));
                 preset = preset.concat(this.last(r.charAt(r.length - 1), preset));
