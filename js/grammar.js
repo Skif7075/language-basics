@@ -5,7 +5,6 @@ const START = '[';
 const END = ']';
 var axiom;
 var Grammar = function(string) {
-    console.log(string);
   this.rules = {};
   var lines = string.split('\n');
   lines = lines.map(Function.prototype.call, String.prototype.trim);
@@ -252,64 +251,65 @@ Grammar.prototype.isWeak = function(){
     return true;
 };
 
-function generateDOMTable(relations) {
-    var tbl = document.createElement('table');
-    var tr = tbl.insertRow();
-    var cellInd = 0;
-    var td = tr.insertCell(cellInd++);
-    for (var s in relations[axiom]) {
-        if (relations[axiom].hasOwnProperty(s)) {
-            td = tr.insertCell(cellInd++);
-            td.appendChild(document.createTextNode(s));
-        }
-    }
-    for (var i in relations) {
-        if (relations.hasOwnProperty(i)) {
-            cellInd = 0;
-            tr = tbl.insertRow();
-            td = tr.insertCell(cellInd++);
-            td.appendChild(document.createTextNode(i));
-            for (var j in relations[i]) {
-                if (relations[i].hasOwnProperty(j)) {
-                    td = tr.insertCell(cellInd++);
-                    td.appendChild(document.createTextNode(relations[i][j]));
-                }
-            }
-        }
-    }
-    return tbl;
-}
+// function generateDOMTable(relations) {
+//     var tbl = document.createElement('table');
+//     var tr = tbl.insertRow();
+//     var cellInd = 0;
+//     var td = tr.insertCell(cellInd++);
+//     for (var s in relations[axiom]) {
+//         if (relations[axiom].hasOwnProperty(s)) {
+//             td = tr.insertCell(cellInd++);
+//             td.appendChild(document.createTextNode(s));
+//         }
+//     }
+//     for (var i in relations) {
+//         if (relations.hasOwnProperty(i)) {
+//             cellInd = 0;
+//             tr = tbl.insertRow();
+//             td = tr.insertCell(cellInd++);
+//             td.appendChild(document.createTextNode(i));
+//             for (var j in relations[i]) {
+//                 if (relations[i].hasOwnProperty(j)) {
+//                     td = tr.insertCell(cellInd++);
+//                     td.appendChild(document.createTextNode(relations[i][j]));
+//                 }
+//             }
+//         }
+//     }
+//     return tbl;
+// }
 
-function analyseBtnClick() {
-    try {
-        grammar = new Grammar(document.getElementById('grammar-input').value);    }
-    catch(e) {
-        alert(e.message);
-    }
-        if (grammar.isSimple()) {
-            grammarType =1;
-            console.log("Simple");
-        }
-        else if (grammar.isWeak()) {
-            grammarType =2;
-            console.log("Weak");
-        }
-        else {
-            grammarType =0;
-            console.log("Nope");
-        }
-        relations = grammar.getRelationTable();
-        document.getElementById("table-div").appendChild(generateDOMTable(relations));
+// function analyseBtnClick() {
+//     try {
+//         grammar = new Grammar(document.getElementById('grammar-input').value);    }
+//     catch(e) {
+//         alert(e.message);
+//     }
+//         if (grammar.isSimple()) {
+//             grammarType =1;
+//             console.log("Simple");
+//         }
+//         else if (grammar.isWeak()) {
+//             grammarType =2;
+//             console.log("Weak");
+//         }
+//         else {
+//             grammarType =0;
+//             console.log("Nope");
+//         }
+//         relations = grammar.getRelationTable();
+//         document.getElementById("table-div").appendChild(generateDOMTable(relations));
+// }
 
-}
-function checkBtnClick() {
-    try {
-        checkCurGrammar();
-    }
-    catch(e) {
-        alert(e.message);
-    }
-}
+// function checkBtnClick() {
+//     try {
+//         checkCurGrammar();
+//     }
+//     catch(e) {
+//         alert(e.message);
+//     }
+// }
+
 function checkCurGrammar() {
     var str = document.getElementById('string-input').value;
     var lines = str.split('\n');

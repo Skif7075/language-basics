@@ -6,6 +6,7 @@ body {
   margin-top: 50px;
   padding: 50px;
   background: #fff;
+  position: relative;
 }
 
 .rule-result {
@@ -14,4 +15,23 @@ body {
 
 .buttons {
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.rule.template {
+  display: none;
+}
+
+.rule + .rule {
+  margin: 10px 0;
+}
+
+.analyse-result {
+  padding: 20px;
+}
+
+.signature {
+  position: absolute;
+  right: 50px;
+  bottom: 15px;
 }
