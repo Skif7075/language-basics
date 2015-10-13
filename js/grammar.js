@@ -330,6 +330,7 @@ function checkCurGrammar(str) {
 }
 function checkSimple(string) {
     var w = START+string+END;
+	$(".algorithm-steps").append(w+"<br/>");
     while (w!=START+axiom+END) {
         var n = w.length-2;
         var i = 0;
@@ -351,11 +352,13 @@ function checkSimple(string) {
         if (!convolution)
             return false;
         w = w.substring(0,k)+convolution+ w.substring(m+1);
+		$(".algorithm-steps").append(w+"<br/>");
     }
     return true;
 }
 function checkWeak(string) {
     var w = START+string+END;
+	$(".algorithm-steps").append(w+"<br/>");
     while (w!=START+axiom+END) {
         var n = w.length-2;
         var i = 0;
@@ -381,6 +384,7 @@ function checkWeak(string) {
         if (!convolution)
             return false;
         w = w.substring(0,lefts[j])+convolution+ w.substring(m+1);
+		$(".algorithm-steps").append(w+"<br/>");
     }
     return true;
 }

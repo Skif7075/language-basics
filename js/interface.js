@@ -17,8 +17,10 @@ $(function(){
   $checkInput = $(".check");
   $checkBtn = $(".check-btn");
   $checkResult = $(".check-result");
+  $algorithmSteps = $(".algorithm-steps");
 
   check = function() {
+	$algorithmSteps.html('');
     value = $checkInput.val();
     try {
       if (checkCurGrammar(value)) {
