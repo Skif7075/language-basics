@@ -1,14 +1,47 @@
 <html>
 	<head>
-		<script src="main.js"></script>
+		<script src="js/jquery-2.1.4.min"></script>
+		<script src="js/grammar.js"></script>
+		<script src="js/interface.js"></script>
+		<link rel="stylesheet" href="styles/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/main.css">
 	</head>
-	<body>
-		<textarea id="grammar-input" cols="40" rows="8"></textarea>
-		<input type="button" onclick="analyseBtnClick()" value="analyse"/>
-		<div id="table-div"></div><br/>
-		<textarea id="string-input" cols="40" rows="4"></textarea>
-		<input type="button" onclick="checkBtnClick()" value="check"/>
+	<body>	
+		<div class="container">
+			<div class="rules">
 
+				<div class="rule">
+					<div class="row">
+						<div class="col-xs-2">
+							<input class="form-control" name="left" placeholder="S">
+						</div>
+						<div class="col-xs-5">
+							<input class="form-control" name="right" placeholder="a | A | b | B | Q">
+						</div>
+						<div class="col-xs-2"></div>
+						<div class="col-xs-3">
+							<div class="rule-result">
+								S -> a | A | b | B | Q
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<div class="row buttons">
+				<div class="col-xs-12">
+					<button type="button" class="btn btn-primary add-rule">Добавить правило</button>
+					<button type="button" class="btn btn-success analyse">Проанализировать</button>
+				</div>
+			</div>
+
+<!-- 				<textarea class="form-control" id="grammar-input" cols="40" rows="8"></textarea>
+				<input type="button" onclick="analyseBtnClick()" value="analyse"/>
+				<div id="table-div"></div><br/>
+				<textarea class="form-control" id="string-input" cols="40" rows="4"></textarea>
+				<input type="button" onclick="checkBtnClick()" value="check"/>
+			</div>
+ -->		
+ 		</div>
 	</body>
 </html>

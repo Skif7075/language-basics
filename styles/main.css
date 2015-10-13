@@ -1,0 +1,17 @@
+body {
+  background: #f7f7f9;
+}
+
+.container {
+  margin-top: 50px;
+  padding: 50px;
+  background: #fff;
+}
+
+.rule-result {
+  line-height: 34px;
+}
+
+.buttons {
+  margin-top: 20px;
+}

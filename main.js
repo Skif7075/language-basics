@@ -5,6 +5,7 @@ const START = '[';
 const END = ']';
 var axiom;
 var Grammar = function(string) {
+    console.log(string);
 	this.rules = {};
 	var lines = string.split('\n');
 	lines = lines.map(Function.prototype.call, String.prototype.trim);
