@@ -26,7 +26,7 @@ body {
   margin: 10px 0;
 }
 
-.analyse-result {
+.analyse-result, .check-result {
   padding: 20px;
 }
 
@@ -34,4 +34,13 @@ body {
   position: absolute;
   right: 50px;
   bottom: 15px;
+}
+
+.check, .check-btn, .check-result {
+  display: none;
+}
+
+.check-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

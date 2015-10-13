@@ -310,8 +310,8 @@ Grammar.prototype.isWeak = function(){
 //     }
 // }
 
-function checkCurGrammar() {
-    var str = document.getElementById('string-input').value;
+function checkCurGrammar(str) {
+    // var str = document.getElementById('string-input').value;
     var lines = str.split('\n');
     lines = lines.map(Function.prototype.call, String.prototype.trim);
     lines = lines.clean("");
@@ -320,9 +320,9 @@ function checkCurGrammar() {
         if (!grammar.getAllSymbols().contains(str.charAt(i)))
             throw new Error("undefined symbol "+str.charAt(i));
     if (grammarType==1)
-        console.log(checkSimple(lines[0]));
+        return checkSimple(lines[0]);
     if (grammarType==2)
-        console.log(checkWeak(lines[0]));
+        return checkWeak(lines[0]);
 }
 function checkSimple(string) {
     var w = START+string+END;

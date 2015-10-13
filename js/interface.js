@@ -14,6 +14,27 @@ $(function(){
   $addRuleBtn = $(".add-rule");
   $analyseBtn = $(".analyse");
 
+  $checkInput = $(".check");
+  $checkBtn = $(".check-btn");
+  $checkResult = $(".check-result");
+
+  check = function() {
+    value = $checkInput.val();
+    try {
+      if (checkCurGrammar(value)) {
+        $checkResult.removeClass('bg-warning').removeClass('bg-danger').addClass('bg-success');
+        $checkResult.html('true');
+      } else {
+        $checkResult.removeClass('bg-success').removeClass('bg-danger').addClass('bg-warning');
+        $checkResult.html('false');
+      }
+    } catch(e) {
+      $checkResult.removeClass('bg-warning').removeClass('bg-success').addClass('bg-danger');
+      $checkResult.html(e.message);
+    }
+  }
+  $checkBtn.bind('click', check);
+
   addRule = function() {
     $rule = $ruleTemplate.clone();
     $rule.removeClass('template');
@@ -44,7 +65,10 @@ $(function(){
             $p.removeClass('bg-success').removeClass('bg-danger').addClass('bg-warning');
         }
         relations = grammar.getRelationTable();
-        $("#table-div").html(generateDOMTable(relations))
+        $("#table-div").html(generateDOMTable(relations));
+        $checkInput.show();
+        $checkBtn.show();
+        $checkResult.show();
     } catch(e) {
         $p.html(e.message);
         $p.removeClass('bg-warning').removeClass('bg-success').addClass('bg-danger');
